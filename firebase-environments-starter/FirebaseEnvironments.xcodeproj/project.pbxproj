@@ -15,7 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6E19805421E2268400A79667 /* FirebaseEnvironments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FirebaseEnvironments.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E19805421E2268400A79667 /* FirebaseEnvironments-Debug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FirebaseEnvironments-Debug.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E19805721E2268400A79667 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6E19805921E2268400A79667 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		6E19805C21E2268400A79667 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -46,7 +46,7 @@
 		6E19805521E2268400A79667 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6E19805421E2268400A79667 /* FirebaseEnvironments.app */,
+				6E19805421E2268400A79667 /* FirebaseEnvironments-Debug.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -81,7 +81,7 @@
 			);
 			name = FirebaseEnvironments;
 			productName = FirebaseEnvironments;
-			productReference = 6E19805421E2268400A79667 /* FirebaseEnvironments.app */;
+			productReference = 6E19805421E2268400A79667 /* FirebaseEnvironments-Debug.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -289,8 +289,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sanchezegido.firebaseenvironments;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sanchezegido.firebaseenvironments.debug;
+				PRODUCT_NAME = "$(TARGET_NAME)-Debug";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
