@@ -25,6 +25,8 @@
 		6E19805E21E2268500A79667 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6E19806121E2268500A79667 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6E19806321E2268500A79667 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6E864F0B21E38015005F8A43 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6E864F0C21E3802A005F8A43 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C11AB2DEEA67C5A2F2593690 /* Pods_FirebaseEnvironments.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FirebaseEnvironments.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -80,12 +82,38 @@
 			children = (
 				6E19805721E2268400A79667 /* AppDelegate.swift */,
 				6E19805921E2268400A79667 /* ViewController.swift */,
+				6E864F0821E37B5E005F8A43 /* Firebase */,
 				6E19805B21E2268400A79667 /* Main.storyboard */,
 				6E19805E21E2268500A79667 /* Assets.xcassets */,
 				6E19806021E2268500A79667 /* LaunchScreen.storyboard */,
 				6E19806321E2268500A79667 /* Info.plist */,
 			);
 			path = FirebaseEnvironments;
+			sourceTree = "<group>";
+		};
+		6E864F0821E37B5E005F8A43 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				6E864F0921E37F6D005F8A43 /* Debug */,
+				6E864F0A21E37F73005F8A43 /* Release */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		6E864F0921E37F6D005F8A43 /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				6E864F0B21E38015005F8A43 /* GoogleService-Info.plist */,
+			);
+			path = Debug;
+			sourceTree = "<group>";
+		};
+		6E864F0A21E37F73005F8A43 /* Release */ = {
+			isa = PBXGroup;
+			children = (
+				6E864F0C21E3802A005F8A43 /* GoogleService-Info.plist */,
+			);
+			path = Release;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -98,6 +126,7 @@
 				DAC9C35F208A589D42F9E28C /* [CP] Check Pods Manifest.lock */,
 				6E19805021E2268400A79667 /* Sources */,
 				6E19805121E2268400A79667 /* Frameworks */,
+				6E864F0D21E383A8005F8A43 /* Setup Firebase plist files */,
 				6E19805221E2268400A79667 /* Resources */,
 				B04502A08E9D5851E5FE78E7 /* [CP] Embed Pods Frameworks */,
 			);
@@ -157,6 +186,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		6E864F0D21E383A8005F8A43 /* Setup Firebase plist files */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Setup Firebase plist files";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Name of the resource to copy\nINFO_PLIST_FILE=GoogleService-Info.plist\n\n# Get references to debug and release versions of the plist file\nDEBUG_INFO_PLIST_FILE=${PROJECT_DIR}/${TARGET_NAME}/Firebase/Debug/${INFO_PLIST_FILE}\nRELEASE_INFO_PLIST_FILE=${PROJECT_DIR}/${TARGET_NAME}/Firebase/Release/${INFO_PLIST_FILE}\n\n# Make sure the debug version exists\necho \"Looking for ${INFO_PLIST_FILE} in ${DEBUG_INFO_PLIST_FILE}\"\nif [ ! -f $DEBUG_INFO_PLIST_FILE ] ; then\n    echo \"File GoogleService-Info.plist (debug) not found.\"\n    exit 1\nfi\n\n# Make sure the release version exists\necho \"Looking for ${INFO_PLIST_FILE} in ${RELEASE_INFO_PLIST_FILE}\"\nif [ ! -f $RELEASE_INFO_PLIST_FILE ] ; then\n    echo \"File GoogleService-Info.plist (release) not found.\"\n    exit 1\nfi\n\n# Get a reference to the destination location for the plist file\nPLIST_DESTINATION=${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app\necho \"Copying ${INFO_PLIST_FILE} to final destination: ${PLIST_DESTINATION}\"\n\n# Copy the file to appropriate folder\nif [ \"${CONFIGURATION}\" == \"Debug\" ] ; then\n    echo \"File ${DEBUG_INFO_PLIST_FILE} copied\"\n    cp \"${DEBUG_INFO_PLIST_FILE}\" \"${PLIST_DESTINATION}\"\nelse\n    echo \"File ${RELEASE_INFO_PLIST_FILE} copied\"\n    cp \"${RELEASE_INFO_PLIST_FILE}\" \"${PLIST_DESTINATION}\"\nfi\n";
+		};
 		B04502A08E9D5851E5FE78E7 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
